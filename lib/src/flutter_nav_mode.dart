@@ -1,8 +1,8 @@
 // Copyright 2024. See LICENSE for details.
 
-import 'src/nav_mode_api.g.dart';
+import 'nav_mode_api.g.dart';
 
-export 'src/nav_mode_api.g.dart' show NavBarMode;
+export 'nav_mode_api.g.dart' show NavBarMode;
 
 /// {@template flutter_nav_mode}
 /// A Flutter plugin to detect Android navigation bar mode.
@@ -19,7 +19,7 @@ export 'src/nav_mode_api.g.dart' show NavBarMode;
 /// ```
 /// {@endtemplate}
 class FlutterNavMode {
-  static final NavBarApi _api = NavBarApi();
+  static final _api = NavBarApi();
 
   /// {@template get_navigation_mode}
   /// Gets the current Android navigation bar mode.
