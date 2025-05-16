@@ -1,7 +1,8 @@
 # Flutter Nav Mode
 
-[![pub package](https://img.shields.io/pub/v/flutter_nav_mode.svg)](https://pub.dev/packages/flutter_nav_mode)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Flutter](https://img.shields.io/badge/Flutter-3.x-blue.svg)](https://flutter.dev)
+[![Pub Version](https://img.shields.io/badge/version-0.1.1-blue)](https://github.com/womanly-corp/audiomob-flutter-plugin)
 
 A Flutter plugin that detects the Android navigation bar mode (three-button, two-button, or gesture navigation).
 
@@ -78,7 +79,7 @@ Contributions are welcome! Please read our [contributing guidelines](CONTRIBUTIN
 
 1. Clone the repository
 2. Run `flutter pub get`
-3. Run `flutter pub run pigeon --input pigeons/nav_mode_api.dart` to generate platform channel code
+3. Run `flutter pub run pigeon --input pigeons/nav_mode_api.dart` or `make gen` to generate platform channel code
 4. Test your changes with the example app
 
 ## License
@@ -90,3 +91,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Edge-to-edge design (Android Developers)](https://developer.android.com/design/ui/mobile/guides/layout-and-content/edge-to-edge)
 - [Pigeon package](https://pub.dev/packages/pigeon)
 - [Flutter plugin development](https://docs.flutter.dev/development/packages-and-plugins/developing-packages)
+
+## Support
+
+- 📝 [Changelog](CHANGELOG.md)
+- 🐛 [Issues](https://github.com/womanly-corp/audiomob-flutter-plugin/issues)
+
+---
+
+<p align="center">
+  <p align="center">
+    Built and maintained by <a href="https://womanly.com">Womanly Corp</a>.
+  </p>
+</p>
