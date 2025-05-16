@@ -1,4 +1,4 @@
-package com.example.flutter_nav_mode
+package com.wromance.flutter_nav_mode
 
 import android.content.Context
 import androidx.annotation.NonNull

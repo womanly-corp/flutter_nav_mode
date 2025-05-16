@@ -23,8 +23,8 @@ dev_dependencies:
 pigeon:
   input: pigeons/nav_mode_api.dart
   dart_out: lib/src/nav_mode_api.g.dart
-  kotlin_out: android/src/main/kotlin/com/example/flutter_nav_mode/NavModeApi.g.kt
-  kotlin_package: com.example.flutter_nav_mode
+  kotlin_out: android/src/main/kotlin/com/wromance/flutter_nav_mode/NavModeApi.g.kt
+  kotlin_package: com.wromance.flutter_nav_mode
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -44,7 +44,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.example.flutter_nav_mode
+        package: com.wromance.flutter_nav_mode
         pluginClass: FlutterNavModePlugin
 
   # To add assets to your plugin package, add an assets section, like this:
