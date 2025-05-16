@@ -1,23 +1,16 @@
-group = "com.example.flutter_nav_mode"
+group = "com.wromance.plugins.audioadmob"
 version = "1.0-SNAPSHOT"
 
 buildscript {
-    ext.kotlin_version = "1.8.22"
+    ext.kotlin_version = "2.1.20"
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath("com.android.tools.build:gradle:8.7.0")
+        classpath("com.android.tools.build:gradle:8.9.0")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
     }
 }
 
@@ -25,42 +18,25 @@ apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
 
 android {
-    namespace = "com.example.flutter_nav_mode"
+    namespace = "com.wromance.plugins.flutter_nav_mode"
 
-    compileSdk = 35
+    compileSdk = flutter.compileSdkVersion
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
+     compileOptions {
+         sourceCompatibility = JavaVersion.VERSION_17
+         targetCompatibility = JavaVersion.VERSION_17
+     }
 
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11
-    }
+     kotlinOptions {
+         jvmTarget = JavaVersion.VERSION_17
+     }
+    
 
     sourceSets {
         main.java.srcDirs += "src/main/kotlin"
         test.java.srcDirs += "src/test/kotlin"
+        // for testig purposes enable this line and add android/libs/AudiomobSDK_v3.0.0.aar to the app/libs folder
+         main.jniLibs.srcDirs = ['libs']
     }
 
-    defaultConfig {
-        minSdk = 21
-    }
-
-    dependencies {
-        testImplementation("org.jetbrains.kotlin:kotlin-test")
-        testImplementation("org.mockito:mockito-core:5.0.0")
-    }
-
-    testOptions {
-        unitTests.all {
-            useJUnitPlatform()
-
-            testLogging {
-               events "passed", "skipped", "failed", "standardOut", "standardError"
-               outputs.upToDateWhen {false}
-               showStandardStreams = true
-            }
-        }
-    }
 }

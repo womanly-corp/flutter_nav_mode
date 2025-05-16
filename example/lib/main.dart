@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> _checkMode() async {
-    final mode = await FlutterNavMode.getNavigationMode();
+    final mode = await FlutterNavMode.instance.getNavigationMode();
     setState(() => _mode = mode);
   }
 

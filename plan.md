@@ -27,8 +27,8 @@ dev_dependencies:
 
 ```dart
 enum NavBarMode {
-  threeButton,
-  twoButton,
+  threeButtons,
+  twoButtons,
   gesture,
   unknown,
 }

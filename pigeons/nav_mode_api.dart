@@ -6,8 +6,10 @@ import 'package:pigeon/pigeon.dart';
   PigeonOptions(
     dartOut: 'lib/src/nav_mode_api.g.dart',
     kotlinOut:
-        'android/src/main/kotlin/com/example/flutter_nav_mode/NavModeApi.kt',
-    kotlinOptions: KotlinOptions(package: 'com.example.flutter_nav_mode'),
+        'android/src/main/kotlin/com/wromance/plugins/flutter_nav_mode/NavModeApi.kt',
+    kotlinOptions: KotlinOptions(
+      package: 'com.wromance.plugins.flutter_nav_mode',
+    ),
     copyrightHeader: 'pigeons/copyright.txt',
   ),
 )
@@ -15,17 +17,17 @@ import 'package:pigeon/pigeon.dart';
 /// Represents the navigation bar mode on Android devices.
 ///
 /// Possible values:
-/// - [threeButton]: Traditional three-button navigation
-/// - [twoButton]: Two-button navigation (back + home)
+/// - [threeButtons]: Traditional three-button navigation
+/// - [twoButtons]: Two-button navigation (back + home)
 /// - [gesture]: Full gesture navigation
 /// - [unknown]: Navigation mode could not be determined
 /// {@endtemplate}
 enum NavBarMode {
   /// Traditional three-button navigation (back, home, recents)
-  threeButton,
+  threeButtons,
 
   /// Two-button navigation with back and home buttons
-  twoButton,
+  twoButtons,
 
   /// Full gesture navigation without buttons
   gesture,

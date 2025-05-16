@@ -1,8 +1,20 @@
 // Copyright 2024. See LICENSE for details.
 
+import 'dart:io';
+
+import 'android_nav_mode.dart';
 import 'nav_mode_api.g.dart';
 
 export 'nav_mode_api.g.dart' show NavBarMode;
+
+/// {@template FlutterNavModeBase.base}
+/// Since there is different API's for iOS and Android, this class purpose
+/// only for Android.
+/// {@endtemplate}
+class FlutterNavModeBase {
+  AndroidNavMode get _androidPlatform =>
+      AndroidNavModePlatform.instance as AndroidNavMode;
+}
 
 /// {@template flutter_nav_mode}
 /// A Flutter plugin to detect Android navigation bar mode.
@@ -18,26 +30,21 @@ export 'nav_mode_api.g.dart' show NavBarMode;
 /// print('Current navigation mode: $mode');
 /// ```
 /// {@endtemplate}
-class FlutterNavMode {
-  static final _api = NavBarApi();
+class FlutterNavMode extends FlutterNavModeBase {
+  FlutterNavMode._();
 
-  /// {@template get_navigation_mode}
-  /// Gets the current Android navigation bar mode.
-  ///
-  /// Returns a [NavBarMode] enum value indicating the current navigation style:
-  /// - [NavBarMode.threeButton]: Traditional three-button navigation
-  /// - [NavBarMode.twoButton]: Two-button navigation
-  /// - [NavBarMode.gesture]: Full gesture navigation
-  /// - [NavBarMode.unknown]: Navigation mode could not be determined
-  ///
-  /// This method is only supported on Android. On other platforms, it will
-  /// return [NavBarMode.unknown].
+  /// {@template FlutterNavModeBase.instance}
+  /// There should be only one instance of FlutterNavMode
   /// {@endtemplate}
-  static Future<NavBarMode> getNavigationMode() async {
-    try {
-      return await _api.getNavBarMode();
-    } catch (e) {
-      return NavBarMode.unknown;
+  static final instance = FlutterNavMode._();
+
+  /// {@template FlutterNavMode.getNavigationMode}
+  /// Get the current navigation mode
+  /// {@endtemplate}
+  Future<NavBarMode> getNavigationMode() async {
+    if (Platform.isAndroid) {
+      return _androidPlatform.getNavigationMode();
     }
+    return NavBarMode.unknown;
   }
 }

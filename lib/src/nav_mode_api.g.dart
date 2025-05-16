@@ -22,16 +22,16 @@ PlatformException _createConnectionError(String channelName) {
 /// Represents the navigation bar mode on Android devices.
 ///
 /// Possible values:
-/// - [threeButton]: Traditional three-button navigation
-/// - [twoButton]: Two-button navigation (back + home)
+/// - [threeButtons]: Traditional three-button navigation
+/// - [twoButtons]: Two-button navigation (back + home)
 /// - [gesture]: Full gesture navigation
 /// - [unknown]: Navigation mode could not be determined
 /// {@endtemplate}
 enum NavBarMode {
   /// Traditional three-button navigation (back, home, recents)
-  threeButton,
+  threeButtons,
   /// Two-button navigation with back and home buttons
-  twoButton,
+  twoButtons,
   /// Full gesture navigation without buttons
   gesture,
   /// Navigation mode could not be determined
