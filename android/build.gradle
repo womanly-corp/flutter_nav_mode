@@ -1,4 +1,4 @@
-group = "com.wromance.plugins.audioadmob"
+group = "com.wromance.plugins.flutter_nav_mode"
 version = "1.0-SNAPSHOT"
 
 buildscript {
@@ -35,8 +35,6 @@ android {
     sourceSets {
         main.java.srcDirs += "src/main/kotlin"
         test.java.srcDirs += "src/test/kotlin"
-        // for testig purposes enable this line and add android/libs/AudiomobSDK_v3.0.0.aar to the app/libs folder
-         main.jniLibs.srcDirs = ['libs']
     }
 
 }

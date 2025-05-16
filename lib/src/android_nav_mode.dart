@@ -5,7 +5,7 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 import 'nav_mode_api.g.dart';
 
-/// Platform interface for the Audiomob SDK
+/// Platform interface
 abstract class AndroidNavModePlatform extends PlatformInterface {
   /// Constructs platform interface
   AndroidNavModePlatform() : super(token: _token);
