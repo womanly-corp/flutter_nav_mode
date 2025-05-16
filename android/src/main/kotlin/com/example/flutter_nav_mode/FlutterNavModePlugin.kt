@@ -1,33 +1,33 @@
 package com.example.flutter_nav_mode
 
+import android.content.Context
+import androidx.annotation.NonNull
 import io.flutter.embedding.engine.plugins.FlutterPlugin
-import io.flutter.plugin.common.MethodCall
-import io.flutter.plugin.common.MethodChannel
-import io.flutter.plugin.common.MethodChannel.MethodCallHandler
-import io.flutter.plugin.common.MethodChannel.Result
 
 /** FlutterNavModePlugin */
-class FlutterNavModePlugin: FlutterPlugin, MethodCallHandler {
-  /// The MethodChannel that will the communication between Flutter and native Android
-  ///
-  /// This local reference serves to register the plugin with the Flutter Engine and unregister it
-  /// when the Flutter Engine is detached from the Activity
-  private lateinit var channel : MethodChannel
+class FlutterNavModePlugin: FlutterPlugin {
+  private lateinit var context: Context
 
-  override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "flutter_nav_mode")
-    channel.setMethodCallHandler(this)
+  override fun onAttachedToEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
+    context = binding.applicationContext
+    NavBarApi.setUp(binding.binaryMessenger, NavBarApiImpl(context))
   }
 
-  override fun onMethodCall(call: MethodCall, result: Result) {
-    if (call.method == "getPlatformVersion") {
-      result.success("Android ${android.os.Build.VERSION.RELEASE}")
-    } else {
-      result.notImplemented()
+  override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
+    NavBarApi.setUp(binding.binaryMessenger, null)
+  }
+}
+
+private class NavBarApiImpl(private val context: Context) : NavBarApi {
+  override fun getNavBarMode(): NavBarMode {
+    val resources = context.resources
+    val resId = resources.getIdentifier("config_navBarInteractionMode", "integer", "android")
+    
+    return when (if (resId > 0) resources.getInteger(resId) else 0) {
+      0 -> NavBarMode.THREE_BUTTON
+      1 -> NavBarMode.TWO_BUTTON
+      2 -> NavBarMode.GESTURE
+      else -> NavBarMode.UNKNOWN
     }
-  }
-
-  override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-    channel.setMethodCallHandler(null)
   }
 }

@@ -1,21 +1,30 @@
 name: flutter_nav_mode
 description: "A new Flutter plugin project."
 version: 0.0.1
-homepage:
+# homepage: ""
 
 environment:
-  sdk: ^3.7.2
-  flutter: '>=3.3.0'
+  sdk: ">=3.7.0 <4.0.0"
+  flutter: ">=3.3.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  plugin_platform_interface: ^2.0.2
+  plugin_platform_interface: ^2.1.8
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  lints: ^5.1.1
+  pigeon: ^25.3.0
+  xsoulspace_lints: ^0.0.14
+
+# Pigeon configuration
+pigeon:
+  input: pigeons/nav_mode_api.dart
+  dart_out: lib/src/nav_mode_api.g.dart
+  kotlin_out: android/src/main/kotlin/com/example/flutter_nav_mode/NavModeApi.g.kt
+  kotlin_package: com.example.flutter_nav_mode
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
